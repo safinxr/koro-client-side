@@ -158,7 +158,7 @@ const Navbar = () => {
                     <ul className=" menu-horizontal px-1 text-base font-semibold black-text uppercase tracking-widest hidden lg:flex">
                         {navLink}
                     </ul>
-                    <div className="indicator me-4">
+                    <div className="indicator me-2 md:me-4">
                         <span className="indicator-item  "></span>
                         <Link><IoNotificationsCircleOutline className='text-4xl text-[#00A1FF] ' /></Link>
                     </div>
