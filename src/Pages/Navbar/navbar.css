@@ -1,0 +1,26 @@
+.nav-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 100%;
+    height: 2px;
+    background-color:#00A1FF;
+    transform: scale(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+}
+
+.nav-underline:hover::after {
+    transform: scale(1);
+}
+
+.active-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 100%;
+    height: 2px;
+    background-color: #00A1FF;
+}
