@@ -12,9 +12,11 @@ const Banner = () => {
     
     return (
         <div style={inlineStyle}
-        className='bg-cover h-screen -mt-16'
+        className='md:bg-cover md:bg-center lg:bg-top lg:h-screen -mt-16 '
         >
-            <div className='max-w-6xl mx-auto px-3 md:px-8 lg:px-0 flex justify-between items-center h-full'>
+            <div className='max-w-6xl mx-auto px-3 md:px-8 lg:px-0 
+            flex flex-col-reverse 
+            lg:flex-row justify-between items-center h-full pb-20 lg:pb-0'>
                 <div className='flex-1 mt-12'>
                     <div className='flex items-center'>
                         <TypeAnimation
@@ -29,10 +31,10 @@ const Banner = () => {
                         />
                         <img className='animate-bounce delay-1000 ' src="https://i.ibb.co/z8vGZPr/korofavicon.png" alt="" />
                     </div>
-                    <h1 className='uppercase text-6xl font-bold leading-[70px] text-[#4341C2]'>Fastest and safest delivery</h1>
+                    <h1 className='uppercase text-4xl md:text-6xl font-bold lg:leading-[70px] text-[#4341C2]'>Fastest and safest delivery</h1>
                     
                     {/* SEARCH BAR================ */}
-                    <div className='pr-16'>
+                    <div className='lg:pr-16'>
                         <div className='mt-4 w-full rounded-full font-medium border-2  border-[#00A1FF] flex items-center text-[#00A1FF]'>
                             <div className='px-4 text-xl'>
                                 <BiSearchAlt2></BiSearchAlt2>
