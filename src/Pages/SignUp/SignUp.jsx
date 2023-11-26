@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import Lottie from "lottie-react";
-import signUpJaon from '../../assets/signupA.json'
+import signupA from '../../assets/signupA.json'
 import { useForm } from "react-hook-form"
 import { BiSolidUser } from 'react-icons/bi';
 import { MdEmail } from 'react-icons/md';
@@ -29,6 +29,8 @@ const SignUp = () => {
     
     // ON SUBMIT🍉🍉🍉🍉🍉🍉🍉
     const onSubmit = (data) => {
+        setErrorText(null)
+        
         const name = data.name;
         const email= data.email;
         const password = data.password
@@ -94,7 +96,7 @@ const SignUp = () => {
 
                 <div className='flex-1  rounded-s-m hidden md:flex'>
                     <div className=' md:flex md:items-center h-full'>
-                        <Lottie animationData={signUpJaon} loop={true} />
+                        <Lottie animationData={signupA} loop={true} />
                     </div>
                 </div>
 
