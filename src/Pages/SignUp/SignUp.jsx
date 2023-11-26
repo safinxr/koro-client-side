@@ -69,13 +69,6 @@ const SignUp = () => {
     const googleHandel = (xProvider) => {
         googleSignIn(xProvider)
             .then(res => {
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Sign up successful",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
                 // const user = res.user
                 // const name = user.displayName
                 // const email = user.email

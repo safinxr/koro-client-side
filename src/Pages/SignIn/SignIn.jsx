@@ -72,7 +72,7 @@ const SignIn = () => {
                 </div>
 
 
-                <div className='flex-1 bg-[#FC76AF] rounded-md md:rounded-l-none rounded-r-md'>
+                <div className='flex-1 bg-[#e03680] rounded-md md:rounded-l-none rounded-r-md'>
                     <div className='py-8 lg:p-8'>
                         <h2 className='text-white uppercase text-xl text-center mt-2 mb-6'>Sign In</h2>
                         <div className='px-4 md:px-6 lg:px-8 pb-4 pt-4'>

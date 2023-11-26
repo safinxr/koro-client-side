@@ -14,9 +14,6 @@ const Navbar = () => {
     let { pathname } = useLocation();
     const { user, logOut, shortLoading, setLoading } = useContext(ContextAuth)
 
-
-
-
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     }, [pathname]);
