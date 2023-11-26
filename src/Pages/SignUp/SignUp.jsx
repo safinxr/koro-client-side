@@ -87,7 +87,7 @@ const SignUp = () => {
         }
 
     return (
-        <div className='max-w-4xl mx-auto my-20 px-3 md:px-8 lg:px-0'>
+        <div className='max-w-4xl mx-auto my-10 md:my-20 px-3 md:px-8 lg:px-0'>
 
             <div className='shadow-two flex justify-center rounded-md'>
 
@@ -100,9 +100,9 @@ const SignUp = () => {
 
 
                 <div className='flex-1 bg-[#9013FE] rounded-md md:rounded-l-none rounded-r-md'>
-                    <div className='p-8'>
+                    <div className='py-8 lg:p-8'>
                         <h2 className='text-white uppercase text-xl text-center mt-2 mb-6'>Sign Up</h2>
-                        <div className='px-8 pb-4 pt-4'>
+                        <div className='px-4 md:px-6 lg:px-8 pb-4 pt-4'>
                             {/* Form start🥮🥮🥮🥮🥮🥮🥮🥮🥮🥮🥮🥮🥮🥮🥮🥮 */}
 
                             <form onSubmit={handleSubmit(onSubmit)}>
