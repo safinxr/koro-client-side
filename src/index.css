@@ -58,3 +58,8 @@ body{
     height: 2px;
     background-color: #00A1FF;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    display: none;
+}

@@ -10,12 +10,11 @@ import { FaUserPen } from "react-icons/fa6";
 const Dashboard = () => {
     const navigate = useNavigate()
     let { pathname } = useLocation();
-    console.log(pathname);
     // const { user, shortLoading} = useContext(ContextAuth)
-    const { data, isLoading } = useUserType()
+    const [userInfo, isLoading] = useUserType()
     
     useEffect(()=>{
-        if(data.user_type === "user"){
+        if(userInfo.user_type === "user"){
             navigate('/dashboard/bookingparcel')
         }
     }, [pathname ==="/dashboard"])
@@ -50,9 +49,9 @@ const Dashboard = () => {
                         <div className='py-6 flex flex-col  items-center'>
                             <h2 className='uppercase font-bold text-2xl text-white'>dashboard</h2>
                             <div className='flex gap-2 text-gray-50 text-sm '>
-                                <h4 className='uppercase'>{data.user_type}</h4>
+                                <h4 className='uppercase'>{userInfo.user_type}</h4>
                                 <h4>||</h4>
-                                <h4>{data.name}</h4>
+                                <h4>{userInfo.name}</h4>
                             </div>
                         </div>
                         <hr />

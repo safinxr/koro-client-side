@@ -14,7 +14,7 @@ const useUserType = () => {
             return res.data
         }
     })
-    return { data, isLoading, refetch }
+    return [data, isLoading]
     
 };
 
