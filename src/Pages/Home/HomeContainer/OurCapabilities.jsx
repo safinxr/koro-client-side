@@ -3,16 +3,12 @@ import Lottie from "lottie-react";
 import f1 from '../../../assets/f1.json'
 import f2 from '../../../assets/f2.json'
 import f3 from '../../../assets/f3.json'
+import SectionHeader from '../../../Components/SectionHeader/SectionHeader';
 
 const OurCapabilities = () => {
     return (
         <div className='max-w-6xl mx-auto my-32 px-3 md:px-8 lg:px-0'>
-            <h1 
-            className='uppercase text-2xl md:text-3xl font-bold mb-14 text-[#00A1FF] flex justify-center items-center'>
-                <img className='animate-bounce me-2' src="https://i.ibb.co/z8vGZPr/korofavicon.png" alt="" /> 
-                Our Best Features 
-                <img className='animate-bounce ms-2' src="https://i.ibb.co/z8vGZPr/korofavicon.png" alt="" />
-            </h1>
+            <SectionHeader text={'Our Best Features'}></SectionHeader>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 <div className="card bg-base-100 shadow-one">
                     <figure className='p-12 h-72'>
