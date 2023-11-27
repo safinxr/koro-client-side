@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import './navbar.css'
-import { FiLogIn, FiUser } from 'react-icons/fi';
+import { FiLogIn} from 'react-icons/fi';
 import { MdLogout } from 'react-icons/md';
 import { PulseLoader } from 'react-spinners';
 import { IoNotificationsCircleOutline } from "react-icons/io5";
 import { ContextAuth } from '../../Context/Context';
 
 
-const Navbar = () => {
+const Navbar = ({ navChange }) => {
+    const navStates = navChange || false
 
     const [navBg, setNavBg] = useState(false)
     let { pathname } = useLocation();
@@ -23,6 +23,7 @@ const Navbar = () => {
             setNavBg(false)
 
         }
+
         else {
             setNavBg(true)
         }
@@ -128,7 +129,7 @@ const Navbar = () => {
     // RETURN START 🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔
     return (
         <nav className={navBg ? "sticky top-0 z-10 bg-white shadow-md" : "sticky top-0 z-10"}>
-            <div className="navbar max-w-6xl mx-auto py-0 md:py-2 px-3 md:px-8 lg:px-0">
+            <div className={navStates ? "navbar max-w-6xl mx-auto py-0 md:py-2 px-3 md:px-8 lg:px-8" : "navbar max-w-6xl mx-auto py-0 md:py-2 px-3 md:px-8 lg:px-0"}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -141,6 +142,14 @@ const Navbar = () => {
                     <Link to='/'>
                         <img className='' src="https://i.ibb.co/ss9HPbG/KURO-logo.png" alt="" />
                     </Link>
+                    {/* {
+                        navStates ? <Link to='/dashboard'>
+                            <h2 className='uppercase font-bold text-2xl text-[#00A1FF]'>dashboard</h2>
+                        </Link>
+                            : <Link to='/'>
+                                <img className='' src="https://i.ibb.co/ss9HPbG/KURO-logo.png" alt="" />
+                            </Link>
+                    } */}
                 </div>
                 <div className="navbar-end">
                     <ul className=" menu-horizontal px-1 text-base font-semibold text-black uppercase tracking-widest hidden lg:flex">

@@ -119,7 +119,7 @@ const SignIn = () => {
                                     </div>
                                     {
                                         errorText && <>
-                                            <p className='text-secondary ms-2 text-sm mt-1'>{errorText}</p>
+                                            <p className='text-warning ms-2 text-sm mt-1'>{errorText}</p>
                                         </>
                                     }
 
