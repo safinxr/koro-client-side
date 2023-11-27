@@ -13,6 +13,8 @@ import { ContextAuth } from '../../Context/Context';
 import { PulseLoader } from 'react-spinners';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider } from 'firebase/auth';
+import useAxiosPublic from '../../Hooks/useAxiosPublic'
+
 
 
 
@@ -24,6 +26,8 @@ const SignUp = () => {
     const location = useLocation()
     const provider = new GoogleAuthProvider();
     const {register, handleSubmit, formState: { errors },} = useForm()
+    const axiosPublic = useAxiosPublic()
+
 
 
     
@@ -39,8 +43,8 @@ const SignUp = () => {
                 upProfile(name)
                     .then(() => {
                         // TODO🤖🤖🤖🤖🤖🤖
-                        // axios.post('https://sasha-server-side.vercel.app/allusers', { name, email })
-                        //     .then(res => console.log(res.data))
+                        axiosPublic.post('/users', { name, email })
+                            .then(res => console.log(res.data))
                         Swal.fire({
                             position: "top-end",
                             icon: "success",
@@ -69,11 +73,12 @@ const SignUp = () => {
     const googleHandel = (xProvider) => {
         googleSignIn(xProvider)
             .then(res => {
-                // const user = res.user
-                // const name = user.displayName
-                // const email = user.email
-                // axios.post('https://sasha-server-side.vercel.app/allusers', { name, email })
-                //     .then(res => console.log(res.data))
+                const user = res.user
+                const name = user.displayName
+                const email = user.email
+                
+                axiosPublic.post('/users', { name, email })
+                    .then(res => console.log(res.data))
                 navigate(location.state || '/')
             }).catch((error) => {
                 console.log(error.message);

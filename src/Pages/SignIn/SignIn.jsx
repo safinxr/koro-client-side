@@ -13,6 +13,7 @@ import { ContextAuth } from '../../Context/Context';
 import { PulseLoader } from 'react-spinners';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider } from 'firebase/auth';
+import useAxiosPublic from '../../Hooks/useAxiosPublic'
 
 
 const SignIn = () => {
@@ -23,13 +24,14 @@ const SignIn = () => {
     const location = useLocation()
     const provider = new GoogleAuthProvider();
     const { register, handleSubmit, formState: { errors }, } = useForm()
+    const axiosPublic = useAxiosPublic()
 
 
 
     // ON SUBMIT🍉🍉🍉🍉🍉🍉🍉
     const onSubmit = (data) => {
         setErrorText(null)
-        
+
         const email = data.email;
         const password = data.password
 
@@ -46,11 +48,12 @@ const SignIn = () => {
     const googleHandel = (xProvider) => {
         googleSignIn(xProvider)
             .then(res => {
-                // const user = res.user
-                // const name = user.displayName
-                // const email = user.email
-                // axios.post('https://sasha-server-side.vercel.app/allusers', { name, email })
-                //     .then(res => console.log(res.data))
+                const user = res.user
+                const name = user.displayName
+                const email = user.email
+
+                axiosPublic.post('/users', { name, email })
+                    .then(res => console.log(res.data))
                 navigate(location.state || '/')
             }).catch((error) => {
                 console.log(error.message);
