@@ -50,9 +50,11 @@ const Dashboard = () => {
                         <div className='py-6 flex flex-col  items-center'>
                             <h2 className='uppercase font-bold text-2xl text-white'>dashboard</h2>
                             <div className='flex gap-2 text-gray-50 text-sm '>
-                                <h4 className='uppercase'>{userInfo?.user_type}</h4>
+                                <h4> Role</h4>
                                 <h4>||</h4>
-                                <h4>{userInfo?.name}</h4>
+                                <h4 className='uppercase'>{userInfo?.user_type}</h4>
+                                
+                                
                             </div>
                         </div>
                         <hr />
