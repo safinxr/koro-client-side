@@ -2,42 +2,44 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
 import useUserType from '../../../Hooks/useUserType';
 import { PulseLoader } from 'react-spinners';
+import useAxiosPublic from '../../../Hooks/useAxiosPublic';
+import Swal from 'sweetalert2';
 
 const ParcelBooking = () => {
     const [userInfo, isLoading] = useUserType()
-    const { register, handleSubmit, watch, formState: { errors }, } = useForm()
+    const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
     const kg = watch('weight') || 0
     const [totalPrice, setTotalPrice] = useState(0)
     const currentDate = new Date();
+    const axiosPublic = useAxiosPublic()
 
     // Extract current day, month, year, 
     const currentDay = currentDate.getDate();
     const currentMonth = currentDate.getMonth() + 1;
     const currentYear = currentDate.getFullYear();
-
     const datex = `${currentDay}-${currentMonth}-${currentYear}`
 
 
 
-    useEffect(()=>{
+    useEffect(() => {
         const weight = parseFloat(kg)
-        if(weight <= 0){
+        if (weight <= 0) {
             setTotalPrice(0)
         }
-        else if(weight <= 1){
+        else if (weight <= 1) {
             setTotalPrice(50)
         }
-        else if(weight <= 2){
+        else if (weight <= 2) {
             setTotalPrice(100)
         }
-        else if (weight > 2){
+        else if (weight > 2) {
             setTotalPrice(150)
         }
-    },[kg])
+    }, [kg])
 
 
     const onSubmit = (data) => {
-        
+
         const name = userInfo.name;
         const email = userInfo.email;
         const price = totalPrice;
@@ -49,9 +51,25 @@ const ParcelBooking = () => {
         const type = data.type;
         const weight = data.weight;
         const date = datex;
+        const bookedData = { name, email, price, address, requested_delivery_date, phone_number, receivers_name, receivers_number, type, weight, date }
 
-        const bookedData = { name, email, price, address, requested_delivery_date, phone_number, receivers_name, receivers_number, type, weight , date }
-        console.log(bookedData )
+        axiosPublic.post('/bookedparcel', bookedData)
+            .then(res => {
+                if (res.data.acknowledged){
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Parcel booked successful",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    reset()
+                    
+                }
+                
+            })
+        
+
     }
     return (
         <div className="hero min-h-screen ">
@@ -59,7 +77,7 @@ const ParcelBooking = () => {
                 isLoading ? <div className='h-[80vh] flex justify-center items-center'>
                     <PulseLoader color="#231F20" size={20} />
                 </div>
-                :
+                    :
                     <div className='w-[700px] bg-[#00A1FF] shadow-two border py-14 px-6 my-20 rounded-xl'>
                         <h1 className='uppercase text-white text-2xl font-semibold text-center mb-10'>Book your parcel</h1>
                         <form onSubmit={handleSubmit(onSubmit)}

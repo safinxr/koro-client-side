@@ -10,14 +10,15 @@ import { FaUserPen } from "react-icons/fa6";
 const Dashboard = () => {
     const navigate = useNavigate()
     let { pathname } = useLocation();
-    // const { user, shortLoading} = useContext(ContextAuth)
     const [userInfo, isLoading] = useUserType()
-    
-    useEffect(()=>{
-        if(userInfo.user_type === "user"){
+
+
+    useEffect(() => {
+       
+        if (userInfo.user_type === "user") {
             navigate('/dashboard/bookingparcel')
         }
-    }, [pathname ==="/dashboard"])
+    }, [pathname === "/dashboard", isLoading])
 
     const userLink = <>
         <li>
@@ -41,7 +42,7 @@ const Dashboard = () => {
                     <Outlet></Outlet>
                 </div>
 
-                
+
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <div

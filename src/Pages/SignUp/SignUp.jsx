@@ -25,18 +25,18 @@ const SignUp = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const provider = new GoogleAuthProvider();
-    const {register, handleSubmit, formState: { errors },} = useForm()
+    const { register, handleSubmit, formState: { errors }, } = useForm()
     const axiosPublic = useAxiosPublic()
 
 
 
-    
+
     // ON SUBMIT🍉🍉🍉🍉🍉🍉🍉
     const onSubmit = (data) => {
         setErrorText(null)
-        
+
         const name = data.name;
-        const email= data.email;
+        const email = data.email;
         const password = data.password
         emailPassSignUp(email, password)
             .then(res => {
@@ -76,7 +76,7 @@ const SignUp = () => {
                 const user = res.user
                 const name = user.displayName
                 const email = user.email
-                
+
                 axiosPublic.post('/users', { name, email })
                     .then(res => console.log(res.data))
                 navigate(location.state || '/')
@@ -84,7 +84,7 @@ const SignUp = () => {
                 console.log(error.message);
             });
 
-        }
+    }
 
     return (
         <div className='bg-gray-100'>
