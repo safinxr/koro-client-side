@@ -6,6 +6,10 @@ import useUserType from '../Hooks/useUserType';
 import { MdAddBox } from "react-icons/md";
 import { FaBoxes } from "react-icons/fa";
 import { FaUserPen } from "react-icons/fa6";
+import { PulseLoader } from 'react-spinners';
+import { FaChartBar } from "react-icons/fa";
+import { FaUsers } from "react-icons/fa";
+import { FaUserClock } from "react-icons/fa";
 
 const Dashboard = () => {
     const navigate = useNavigate()
@@ -13,13 +17,26 @@ const Dashboard = () => {
     const [userInfo, isLoading] = useUserType()
 
 
-    useEffect(() => {
-
+    if (isLoading) {
+        return <div className='h-[80vh] flex justify-center items-center'>
+            <PulseLoader color="#231F20" size={20} />
+        </div>
+    }
+    if (pathname === "/dashboard") {
         if (userInfo.user_type === "user") {
             navigate('/dashboard/bookingparcel')
-        }
-    }, [pathname === "/dashboard", userInfo])
 
+        }
+        if (userInfo.user_type === "admin") {
+            navigate('/dashboard/statistics')
+
+        }
+
+    }
+
+
+
+    // Nav Links 🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗
     const userLink = <>
         <li>
             <NavLink to="/dashboard/bookingparcel"><MdAddBox /> Book a Parcel </NavLink>
@@ -28,16 +45,22 @@ const Dashboard = () => {
             <NavLink to="/dashboard/parcelbooked"><FaBoxes /> My Parcels </NavLink>
         </li>
     </>
+
     const adminLink = <>
         <li>
-            <NavLink to="/dashboard/bookingparcel"><MdAddBox /> Book a Parcel </NavLink>
+            <NavLink to="/dashboard/statistics"><FaChartBar /> Statistics</NavLink>
         </li>
         <li>
-            <NavLink to="/dashboard/parcelbooked"><FaBoxes /> My Parcels </NavLink>
+            <NavLink to="/dashboard/allparcel"><FaBoxes /> All parcels </NavLink>
+        </li>
+        <li>
+            <NavLink to="/dashboard/alluser"><FaUsers /> All user </NavLink>
+        </li>
+        <li>
+            <NavLink to="/dashboard/alldeliveryman"><FaUserClock /> All delivery men </NavLink>
         </li>
     </>
 
-    // console.log(isLoading, userInfo);
 
     return (
         <div>
@@ -61,8 +84,8 @@ const Dashboard = () => {
                                 <h4> Role</h4>
                                 <h4>||</h4>
                                 <h4 className='uppercase'>{userInfo?.user_type}</h4>
-                                
-                                
+
+
                             </div>
                         </div>
                         <hr />
@@ -72,10 +95,10 @@ const Dashboard = () => {
                         <ul className="menu p-4 text-white text-base font-medium">
                             {
                                 userInfo.user_type === 'admin' ? adminLink :
-                                 userLink
-                                
+                                    userLink
+
                             }
-                            
+
                             <li><NavLink to="/dashboard/myprofile"><FaUserPen /> My Profile </NavLink></li>
                         </ul>
                     </div>

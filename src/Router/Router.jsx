@@ -10,6 +10,11 @@ import ParcelBooking from "../Pages/Dashboard/ForUser/ParcelBooking";
 import MyProfile from "../Pages/Dashboard/MyProfile";
 import UpdateParcel from "../Pages/Dashboard/ForUser/UpdateParcel";
 import UserRoute from "./UserRoute";
+import StatisticsPage from "../Pages/Dashboard/ForAdmin/StatisticsPage/StatisticsPage";
+import AllUser from "../Pages/Dashboard/ForAdmin/AllUser/AllUser";
+import AllParcels from "../Pages/Dashboard/ForAdmin/AllParcels/AllParcels";
+import AllDeliveryMen from "../Pages/Dashboard/ForAdmin/AllDeliveryMen/AllDeliveryMen";
+import AdminRoute from "./AdminRoute";
 
 
 export const router = createBrowserRouter([
@@ -52,6 +57,23 @@ export const router = createBrowserRouter([
                 path:'/dashboard/updateparcel/:id',
                 element: <UserRoute><UpdateParcel></UpdateParcel></UserRoute>
             },
+            {
+                path:'/dashboard/statistics',
+                element: <AdminRoute><StatisticsPage></StatisticsPage></AdminRoute>
+            },
+            {
+                path:'/dashboard/alluser',
+                element: <AdminRoute><AllUser></AllUser></AdminRoute>
+            },
+            {
+                path:'/dashboard/allparcel',
+                element: <AdminRoute><AllParcels></AllParcels></AdminRoute>
+            },
+            {
+                path:'/dashboard/alldeliveryman',
+                element: <AdminRoute><AllDeliveryMen></AllDeliveryMen></AdminRoute>
+            },
+
         ]
         
         

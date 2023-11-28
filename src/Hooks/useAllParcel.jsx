@@ -3,18 +3,18 @@ import useAxiosSecure from './useAxiosSecure';
 import { useQuery } from 'react-query';
 import { ContextAuth } from '../Context/Context';
 
-const useGetSingleParcel = (id) => {
+const useAllParcel = () => {
     const axiosSecure = useAxiosSecure()
-    const {user} = useContext(ContextAuth)
+    const { user } = useContext(ContextAuth)
 
     const { data = [], isLoading, refetch } = useQuery({
-        queryKey: ['single Parcel', id],
+        queryKey: ['AllParcel'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/singleparcel/?id=${id}&email=${user.email}`)
+            const res = await axiosSecure.get(`/allparcel/?email=${user.email}`)
             return res.data
         }
     })
     return [data, isLoading, refetch]
 };
 
-export default useGetSingleParcel;
+export default useAllParcel;
