@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import Navbar from '../Pages/Navbar/Navbar';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { ContextAuth } from '../Context/Context';
+// import { ContextAuth } from '../Context/Context';
 import useUserType from '../Hooks/useUserType';
 import { MdAddBox } from "react-icons/md";
 import { FaBoxes } from "react-icons/fa";
@@ -14,11 +14,11 @@ const Dashboard = () => {
 
 
     useEffect(() => {
-       
+
         if (userInfo.user_type === "user") {
             navigate('/dashboard/bookingparcel')
         }
-    }, [pathname === "/dashboard", isLoading])
+    }, [pathname === "/dashboard", userInfo])
 
     const userLink = <>
         <li>
@@ -29,7 +29,7 @@ const Dashboard = () => {
         </li>
     </>
 
-
+    // console.log(isLoading, userInfo);
 
     return (
         <div>
@@ -50,9 +50,9 @@ const Dashboard = () => {
                         <div className='py-6 flex flex-col  items-center'>
                             <h2 className='uppercase font-bold text-2xl text-white'>dashboard</h2>
                             <div className='flex gap-2 text-gray-50 text-sm '>
-                                <h4 className='uppercase'>{userInfo.user_type}</h4>
+                                <h4 className='uppercase'>{userInfo?.user_type}</h4>
                                 <h4>||</h4>
-                                <h4>{userInfo.name}</h4>
+                                <h4>{userInfo?.name}</h4>
                             </div>
                         </div>
                         <hr />

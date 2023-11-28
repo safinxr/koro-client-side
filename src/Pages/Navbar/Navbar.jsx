@@ -129,7 +129,7 @@ const Navbar = ({ navChange }) => {
     // RETURN START 🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔
     return (
         <nav className={navBg ? "sticky top-0 z-10 bg-white shadow-md" : "sticky top-0 z-10"}>
-            <div className={navStates ? "navbar max-w-6xl mx-auto py-0 md:py-2 px-3 md:px-8 lg:px-8" : "navbar max-w-6xl mx-auto py-0 md:py-2 px-3 md:px-8 lg:px-0"}>
+            <div className={navStates ? "navbar max-w-6xl mx-auto py-0 md:py-2 px-3 md:px-8 lg:px-12" : "navbar max-w-6xl mx-auto py-0 md:py-2 px-3 md:px-8 lg:px-0"}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -1,15 +1,16 @@
-import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ContextAuth } from '../Context/Context';
+// import React, { useContext } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { ContextAuth } from '../Context/Context';
+import axios from 'axios';
 
 const axiosSecure = axios.create({
     baseURL: 'http://localhost:5000',
-    withCredentials: true
+    // withCredentials: true
 });
 
 const useAxiosSecure = () => {
-    const navigate = useNavigate();
-    const { logOut } = useContext(ContextAuth)
+    // const navigate = useNavigate();
+    // const { logOut } = useContext(ContextAuth)
 
     // axiosSecure.interceptors.response.use(function (response) {
     //     return response;

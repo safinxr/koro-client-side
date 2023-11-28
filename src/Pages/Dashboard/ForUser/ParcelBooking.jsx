@@ -51,7 +51,8 @@ const ParcelBooking = () => {
         const type = data.type;
         const weight = data.weight;
         const date = datex;
-        const bookedData = { name, email, price, address, requested_delivery_date, phone_number, receivers_name, receivers_number, type, weight, date }
+        const status = 'Unpaid'
+        const bookedData = { name, email, price, address, requested_delivery_date, phone_number, receivers_name, receivers_number, type, weight, date, status }
 
         axiosPublic.post('/bookedparcel', bookedData)
             .then(res => {

@@ -1,21 +1,20 @@
 import { useContext } from 'react';
-import useAxiosPublic from './useAxiosPublic';
+import useAxiosSecure from './useAxiosSecure';
 import { ContextAuth } from '../Context/Context';
 import { useQuery } from 'react-query';
 
-const useUserType = () => {
+const useBookedParcel = () => {
     const { user } = useContext(ContextAuth)
-    const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure()
 
     const { data = [], isLoading, refetch } = useQuery({
-        queryKey: ['user'],
+        queryKey: ['bookedParcel'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/user/?email=${user.email}`)
+            const res = await axiosSecure.get(`/bookedparcel/?email=${user.email}`)
             return res.data
         }
     })
-    return [data, isLoading]
-    
+    return [data, isLoading, refetch]
 };
 
-export default useUserType;
+export default useBookedParcel;
