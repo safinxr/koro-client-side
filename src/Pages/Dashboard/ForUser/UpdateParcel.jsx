@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
-import useUserType from '../../../Hooks/useUserType';
 import { PulseLoader } from 'react-spinners';
 import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
@@ -24,7 +23,7 @@ const UpdateParcel = () => {
     const datex = `${currentDay}-${currentMonth}-${currentYear}`
 
 
-    const [singleData, loading, refetch] = useGetSingleParcel(id)
+    const [singleData, loading] = useGetSingleParcel(id)
     const { name, email, price, address, requested_delivery_date, phone_number, receivers_name, receivers_number, type, weight } = singleData
 
 

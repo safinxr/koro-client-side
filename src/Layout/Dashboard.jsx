@@ -28,6 +28,14 @@ const Dashboard = () => {
             <NavLink to="/dashboard/parcelbooked"><FaBoxes /> My Parcels </NavLink>
         </li>
     </>
+    const adminLink = <>
+        <li>
+            <NavLink to="/dashboard/bookingparcel"><MdAddBox /> Book a Parcel </NavLink>
+        </li>
+        <li>
+            <NavLink to="/dashboard/parcelbooked"><FaBoxes /> My Parcels </NavLink>
+        </li>
+    </>
 
     // console.log(isLoading, userInfo);
 
@@ -62,7 +70,12 @@ const Dashboard = () => {
 
 
                         <ul className="menu p-4 text-white text-base font-medium">
-                            {userLink}
+                            {
+                                userInfo.user_type === 'admin' ? adminLink :
+                                 userLink
+                                
+                            }
+                            
                             <li><NavLink to="/dashboard/myprofile"><FaUserPen /> My Profile </NavLink></li>
                         </ul>
                     </div>

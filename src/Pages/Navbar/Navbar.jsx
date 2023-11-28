@@ -96,7 +96,7 @@ const Navbar = ({ navChange }) => {
             }</label>
 
             <div tabIndex={0} className="dropdown-content z-[1]  shadow bg-base-100  w-64 mt-5 rounded-md">
-                <Link to='/'>
+                <Link to='/dashboard/myprofile'>
                     <div className='flex flex-col justify-center items-center p-4 cursor-pointer hover:bg-gray-100'>
                         {user?.photoURL ?
                             <img className='w-16 h-16  rounded-full ' src={user?.photoURL} alt="" />

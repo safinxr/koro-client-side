@@ -9,6 +9,7 @@ import BookedParcel from "../Pages/Dashboard/ForUser/BookedParcel";
 import ParcelBooking from "../Pages/Dashboard/ForUser/ParcelBooking";
 import MyProfile from "../Pages/Dashboard/MyProfile";
 import UpdateParcel from "../Pages/Dashboard/ForUser/UpdateParcel";
+import UserRoute from "./UserRoute";
 
 
 export const router = createBrowserRouter([
@@ -35,20 +36,21 @@ export const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children:[
             {
-                path:'/dashboard/bookingparcel',
-                element:<ParcelBooking></ParcelBooking>
-            },
-            {
-                path:'/dashboard/parcelbooked',
-                element: <BookedParcel></BookedParcel>
-            },
-            {
-                path:'/dashboard/myprofile',
+                path: '/dashboard/myprofile',
                 element: <MyProfile></MyProfile>
             },
             {
+                path:'/dashboard/bookingparcel',
+                element: <UserRoute><ParcelBooking></ParcelBooking></UserRoute>
+            },
+            {
+                path:'/dashboard/parcelbooked',
+                element: <UserRoute><BookedParcel></BookedParcel></UserRoute> 
+            },
+            
+            {
                 path:'/dashboard/updateparcel/:id',
-                element: <UpdateParcel></UpdateParcel>
+                element: <UserRoute><UpdateParcel></UpdateParcel></UserRoute>
             },
         ]
         
