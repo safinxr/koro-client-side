@@ -5,6 +5,7 @@ import { PropagateLoader } from 'react-spinners';
 import MyBookedTable from './myBookedTable';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { HiOutlineEmojiSad } from "react-icons/hi";
 
 
 const BookedParcel = () => {
@@ -51,7 +52,7 @@ const BookedParcel = () => {
     // console.log(bookedData);
     if (bookedData.length === 0) {
         return <div className='flex justify-center items-center h-[50vh]'>
-            <h2 className='text-4xl text-gray-500  font-semibold uppercase'>no food found </h2>
+            <h2 className='text-3xl text-gray-500  font-semibold uppercase'>no booked parcel found </h2>
             <h2 className='text-5xl text-gray-500  font-semibold uppercase ms-2'><HiOutlineEmojiSad></HiOutlineEmojiSad></h2>
         </div>
     }

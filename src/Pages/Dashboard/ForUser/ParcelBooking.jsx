@@ -64,7 +64,7 @@ const ParcelBooking = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    reset()
+                    // reset()
                     
                 }
                 

@@ -40,6 +40,10 @@ const Context = ({ children }) => {
         setShortLoading(true)
         return updateProfile(auth.currentUser, { displayName: name })
     }
+    const upProfileImg = (name, imgUrl) => {
+        setShortLoading(true)
+        return updateProfile(auth.currentUser, { displayName: name, photoURL: imgUrl })
+    }
 
 
 
@@ -70,7 +74,8 @@ const Context = ({ children }) => {
         shortLoading,
         setLoading,
         user,
-        alu
+        alu,
+        upProfileImg
 
 
     }
