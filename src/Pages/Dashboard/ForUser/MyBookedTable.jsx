@@ -39,7 +39,7 @@ const MyBookedTable = ({ parcel, deleteBtn }) => {
                     </td>
                     <th className='w-1/12'>
                         <div className='flex flex-col items-center justify-center w-full gap-y-2'>
-                            <Link to={`/updatepage/${_id}`} 
+                            <Link to={`/dashboard/updateparcel/${_id}`} 
                                 className='uppercase active:scale-95 w-full text-center bg-[#02A2FF]  py-2 text-white rounded-md px-4'>
                                 Update
                             </Link>
