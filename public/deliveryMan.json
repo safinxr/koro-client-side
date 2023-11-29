@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Sagor Khan",
+    "image": "https://i.ibb.co/RPkVd7M/td5.jpg",
+    "parcelsDelivered": 250,
+    "averageRatings": 4.9
+  },
+  {
+    "name": "Taiyb Chaudhari",
+    "image": "https://i.ibb.co/0Xp95Sb/td4.jpg",
+    "parcelsDelivered": 200,
+    "averageRatings": 4.9
+  },
+  {
+    "name": "Nabil Haque",
+    "image": "https://i.ibb.co/2KvZwSK/td3.jpg",
+    "parcelsDelivered": 180,
+    "averageRatings": 4.7
+  },
+  {
+    "name": "Farhan Islam",
+    "image": "https://i.ibb.co/dGM0gbm/td2.jpg",
+    "parcelsDelivered": 120,
+    "averageRatings": 4.1
+  },
+  {
+    "name": "Shovo Rahman",
+    "image": "https://i.ibb.co/TKdr0dJ/td1.jpg",
+    "parcelsDelivered": 110,
+    "averageRatings": 4.8
+  }
+]
