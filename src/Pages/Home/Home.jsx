@@ -3,6 +3,7 @@ import Banner from './HomeContainer/Banner';
 import OurCapabilities from './HomeContainer/OurCapabilities';
 import StatisticsSection from './HomeContainer/StatisticsSection';
 import TopDeliveryMan from './HomeContainer/TopDeliveryMan';
+import Footer from '../Footer/Footer';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <OurCapabilities></OurCapabilities>
             <StatisticsSection></StatisticsSection>
             <TopDeliveryMan></TopDeliveryMan>
+            <Footer></Footer>
         </div>
     );
 };

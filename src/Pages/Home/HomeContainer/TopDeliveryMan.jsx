@@ -52,7 +52,7 @@ const TopDeliveryMan = () => {
 
 
     return (
-        <div className='mb-32 max-w-6xl mx-auto px-3 md:px-8 lg:px-0'>
+        <div className='mb-12 md:mb-24 lg:mb-32 max-w-6xl mx-auto px-3 md:px-8 lg:px-0'>
             <SectionHeader text={'top five delivery man'}></SectionHeader>
             <Swiper
                 slidesPerView={count}
