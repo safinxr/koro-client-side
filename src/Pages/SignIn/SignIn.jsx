@@ -37,7 +37,10 @@ const SignIn = () => {
 
         emailPassSignIn(email, password)
             .then(res => {
-                navigate(location.state || '/')
+                if (location.state === '/') {
+                    navigate('/')
+                }
+                navigate(location.state? '/dashboard': '/')
             })
             .catch(error => {
                 setLoading(false)

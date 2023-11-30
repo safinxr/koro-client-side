@@ -12,6 +12,9 @@ import { FaUsers } from "react-icons/fa";
 import { FaUserClock } from "react-icons/fa";
 import { IoIosListBox } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
+import { FaArrowCircleRight } from "react-icons/fa";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+
 
 const Dashboard = () => {
     const navigate = useNavigate()
@@ -84,7 +87,7 @@ const Dashboard = () => {
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <Navbar navChange={true}></Navbar>
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label htmlFor="my-drawer-2" className="drawer-button lg:hidden text-primary text-4xl sticky"><MdKeyboardDoubleArrowRight /></label>
                     <Outlet></Outlet>
                 </div>
 

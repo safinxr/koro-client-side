@@ -58,15 +58,21 @@ const BookedParcel = () => {
     }
 
     return (
-        <div className=''>
+        <div className='overflow-x-auto'>
 
             <div className=' mx-auto px-3 md:px-8 lg:px-12 my-12'>
                 <SectionHeader text={'My booked Parcel'}></SectionHeader>
 
                 <div className="overflow-x-auto mt-6 shadow-one rounded-lg">
-                    {
-                        bookedData.map(parcel => <MyBookedTable parcel={parcel} key={parcel._id} deleteBtn={deleteBtn}></MyBookedTable>)
-                    }
+                    <table className="table">
+                        <tbody>
+                            {
+                                bookedData.map(parcel => <MyBookedTable parcel={parcel} key={parcel._id} deleteBtn={deleteBtn}></MyBookedTable>)
+                            }
+                        </tbody>
+                    </table>
+                    
+                    
                 </div>
             </div>
         </div>

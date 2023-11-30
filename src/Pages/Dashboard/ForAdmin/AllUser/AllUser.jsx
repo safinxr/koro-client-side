@@ -62,7 +62,7 @@ const AllUser = () => {
             <div className=' mx-auto px-3 md:px-8 lg:px-8 my-12'>
                 <SectionHeader text={'All Users'}></SectionHeader>
 
-                <div className="overflow-x-auto mt-6 shadow-two rounded-lg">
+                <div className=" mt-6 shadow-two rounded-lg">
                     <div className="overflow-x-auto">
                         <table className="table">
                             {/* head */}

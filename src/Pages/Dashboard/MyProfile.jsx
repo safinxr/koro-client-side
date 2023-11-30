@@ -141,9 +141,7 @@ const MyProfile = () => {
                 </div>
             </div>
         </div>
-        // <div>
-        //     <input type="file" ref={imgRaf} onChange={fileInput}/>
-        // </div>
+
     );
 };
 

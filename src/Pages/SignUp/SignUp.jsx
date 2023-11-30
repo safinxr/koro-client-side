@@ -52,7 +52,10 @@ const SignUp = () => {
                             showConfirmButton: false,
                             timer: 1500
                         });
-                        navigate(location.state || '/')
+                        if (location.state === '/') {
+                            navigate('/')
+                        }
+                        navigate(location.state ? '/dashboard' : '/')
                         setLoading(false)
                     }).catch((error) => {
                         setLoading(false)
