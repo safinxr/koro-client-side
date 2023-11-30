@@ -10,6 +10,8 @@ import { PulseLoader } from 'react-spinners';
 import { FaChartBar } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
 import { FaUserClock } from "react-icons/fa";
+import { IoIosListBox } from "react-icons/io";
+import { FaStar } from "react-icons/fa";
 
 const Dashboard = () => {
     const navigate = useNavigate()
@@ -46,6 +48,15 @@ const Dashboard = () => {
         </li>
     </>
 
+    const deliveryManLik = <>
+        <li>
+            <NavLink to="/dashboard/mydeliverylist"><IoIosListBox /> My Delivery List</NavLink>
+        </li>
+        <li>
+            <NavLink to="/dashboard/myreviews"><FaStar /> My Reviews </NavLink>
+        </li>
+        
+    </>
     const adminLink = <>
         <li>
             <NavLink to="/dashboard/statistics"><FaChartBar /> Statistics</NavLink>
@@ -95,7 +106,7 @@ const Dashboard = () => {
                         <ul className="menu p-4 text-white text-base font-medium">
                             {
                                 userInfo.user_type === 'admin' ? adminLink :
-                                    userLink
+                                    userInfo.user_type === 'delivery man'? deliveryManLik: userLink
 
                             }
 
