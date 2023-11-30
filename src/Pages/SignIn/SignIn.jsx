@@ -60,6 +60,7 @@ const SignIn = () => {
             });
 
     }
+    console.log(location.state, 'sign In');
 
 
     return (

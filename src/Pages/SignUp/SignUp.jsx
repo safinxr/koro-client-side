@@ -29,7 +29,7 @@ const SignUp = () => {
     const axiosPublic = useAxiosPublic()
 
 
-
+    console.log(location.state);
 
     // ON SUBMIT🍉🍉🍉🍉🍉🍉🍉
     const onSubmit = (data) => {
@@ -85,6 +85,7 @@ const SignUp = () => {
             });
 
     }
+
 
     return (
         <div className='bg-gray-100'>

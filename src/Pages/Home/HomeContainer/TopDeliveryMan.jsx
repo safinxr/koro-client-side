@@ -11,13 +11,13 @@ const TopDeliveryMan = () => {
     const [data, setData] = useState([])
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [count, setCount] =useState(3)
-    console.log(count);
+
 
     useEffect(()=>{
         axios('deliveryMan.json')
         .then(res => setData(res.data))
     },[])
-    console.log(data);
+
     
 
     const handleResize = () => {
@@ -29,12 +29,10 @@ const TopDeliveryMan = () => {
 
         if (windowWidth >= 1024){
             setCount(3)
-            console.log('sfdlafjalfa');
         
         }
         else if (windowWidth >= 768 ){
             setCount(2)
-            console.log('s11111a');
             
         }
         else if (windowWidth < 768){
@@ -46,9 +44,6 @@ const TopDeliveryMan = () => {
         };
     }, [windowWidth]); 
 
-
-
-    console.log(windowWidth);
 
 
     return (

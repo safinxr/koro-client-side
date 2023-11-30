@@ -4,7 +4,7 @@ import ComingSoon from '../../../../Components/ComingSoon/ComingSoon';
 const StatisticsPage = () => {
     return (
         <div>
-            <ComingSoon width={560}></ComingSoon>
+            <ComingSoon></ComingSoon>
         </div>
     );
 };

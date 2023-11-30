@@ -4,9 +4,11 @@ import Lottie from "lottie-react";
 
 
 const ComingSoon = ({width }) => {
-    const divCss = `w-[${width}px] mx-auto`
+    
+    const divCss = 'w-[560px] mx-auto'
+    console.log(width);
     return (
-        <div className={divCss}>
+        <div className={width ? '': divCss}>
             <Lottie animationData={u1} loop={true} />
         </div>
     );

@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 
 const AllParcels = () => {
-    const [AllData, isLoading, refetch] = useAllParcel()
+    const [AllData, isLoading, refetch] = useAllParcel('allparcel')
     const axiosSecure = useAxiosSecure()
 
     const deleteBtn = (id) => {
@@ -48,7 +48,6 @@ const AllParcels = () => {
 
     return (
         <div className=''>
-
             <div className=' mx-auto px-3 md:px-8 lg:px-12 my-12'>
                 <SectionHeader text={'All Booked Parcel'}></SectionHeader>
 
