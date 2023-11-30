@@ -31,7 +31,22 @@ const AllUser = () => {
             })
     }
     const adminHandel = (id) => {
-        console.log(id);
+        const userType = { user_type: 'admin' }
+        axiosSecure.put(`/user/?id=${id}&email=${user.email}`, userType)
+            .then(res => {
+                if (res.data.acknowledged) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "User to Delivery man successful",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    refetch()
+
+                }
+
+            })
     }
 
 

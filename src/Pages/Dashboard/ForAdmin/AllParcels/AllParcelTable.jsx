@@ -2,7 +2,6 @@ import React from 'react';
 import ComingSoon from '../../../../Components/ComingSoon/ComingSoon';
 
 const AllParcelTable = ({ parcel, deleteBtn, index }) => {
-    console.log(index);
     const { _id, name, email, price, address, requested_delivery_date, phone_number, receivers_name, receivers_number, type, weight, date, status } = parcel
     return (
         <table className="table">
