@@ -1,8 +1,28 @@
-# React + Vite
+# KORO
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo
+[Website Live link](https://koro-ebb34.web.app/)
+
+
+# Features
+### Dynamic Navbar
+The application boasts a dynamic navbar that adjusts based on user authentication status. Interactive profile dropdown for logged-in users.
+
+
+### Real-Time Statistics 
+Animated real-time statistics highlight crucial app metrics like the number of parcels booked, delivered, and registered users.
+
+### Role-Based Dashboard and Menu System
+Role-based dashboard with conditional rendering based on the user type. Sidebar menus are dynamically adjusted for Users, Delivery Men, and Admin.
+
+###  and User Profile:
+The user profile section displays added food items, enables food item addition, and shows ordered food items, providing a personalized experience.
+
+
+### JWT Authentication for Secure Access
+This Restaurant Management Website incorporates robust JSON Web Token (JWT) authentication, ensuring a secure and seamless user experience.
+
+### Parcel Booking System
+Streamlined parcel booking system with a user-friendly interface. Auto-filled fields for logged-in users, enhancing convenience. Advanced features like real-time price calculation and status management.
