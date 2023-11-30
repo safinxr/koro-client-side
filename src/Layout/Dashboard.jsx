@@ -29,6 +29,10 @@ const Dashboard = () => {
             navigate('/dashboard/bookingparcel')
 
         }
+        if (userInfo.user_type === "delivery man") {
+            navigate('/dashboard/mydeliverylist')
+
+        }
         if (userInfo.user_type === "admin") {
             navigate('/dashboard/statistics')
 
@@ -55,8 +59,8 @@ const Dashboard = () => {
         <li>
             <NavLink to="/dashboard/myreviews"><FaStar /> My Reviews </NavLink>
         </li>
-        
     </>
+
     const adminLink = <>
         <li>
             <NavLink to="/dashboard/statistics"><FaChartBar /> Statistics</NavLink>
@@ -106,7 +110,7 @@ const Dashboard = () => {
                         <ul className="menu p-4 text-white text-base font-medium">
                             {
                                 userInfo.user_type === 'admin' ? adminLink :
-                                    userInfo.user_type === 'delivery man'? deliveryManLik: userLink
+                                    userInfo.user_type === 'delivery man' ? deliveryManLik : userLink
 
                             }
 

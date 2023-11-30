@@ -17,6 +17,8 @@ import AllDeliveryMen from "../Pages/Dashboard/ForAdmin/AllDeliveryMen/AllDelive
 import AdminRoute from "./AdminRoute";
 import MyDeliveryList from "../Pages/Dashboard/ForDeliveryMan/MyDeliveryList/MyDeliveryList";
 import MyReviews from "../Pages/Dashboard/ForDeliveryMan/MyReviews/MyReviews";
+import DeliveryRoute from "./DeliveryRoute";
+import SignUpInRoute from "./SignUpInRoute";
 
 
 export const router = createBrowserRouter([
@@ -30,11 +32,11 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/signin',
-                element:<SignIn></SignIn>
+                element: <SignUpInRoute><SignIn></SignIn></SignUpInRoute>
             },
             {
                 path:'/signup',
-                element:<SignUp></SignUp>
+                element: <SignUpInRoute><SignUp></SignUp></SignUpInRoute>
             }
         ]
     },
@@ -77,11 +79,11 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/dashboard/mydeliverylist',
-                element:<MyDeliveryList></MyDeliveryList>
+                element: <DeliveryRoute><MyDeliveryList></MyDeliveryList></DeliveryRoute>
             },
             {
                 path:'/dashboard/myreviews',
-                element:<MyReviews></MyReviews>
+                element: <DeliveryRoute><MyReviews></MyReviews></DeliveryRoute>
             },
 
         ]
