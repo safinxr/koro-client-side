@@ -57,7 +57,10 @@ const SignIn = () => {
 
                 axiosPublic.post('/users', { name, email })
                     .then(res => console.log(res.data))
-                navigate(location.state || '/')
+                if (location.state === '/') {
+                    navigate('/')
+                }
+                navigate(location.state ? '/dashboard' : '/')
             }).catch((error) => {
                 console.log(error.message);
             });
