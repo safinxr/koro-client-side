@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useAllParcel from '../../../../Hooks/useAllParcel';
 import { PulseLoader } from 'react-spinners';
 import AllParcelTable from './AllParcelTable';
 import SectionHeader from '../../../../Components/SectionHeader/SectionHeader';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
+import { ContextAuth } from '../../../../Context/Context';
 
 const AllParcels = () => {
+    const { user } = useContext(ContextAuth)
     const [AllData, isLoading, refetch] = useAllParcel('allparcel')
     const axiosSecure = useAxiosSecure()
+
+    
     if (isLoading) {
         return <div className='h-[80vh] flex justify-center items-center'>
             <PulseLoader color="#231F20" size={20} />
@@ -26,7 +30,7 @@ const AllParcels = () => {
             confirmButtonText: "Yes, Cancel it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`/bookedParcel/?id=${id}`)
+                axiosSecure.delete(`/bookedParcel/?id=${id}&email=${user.email}`)
                     .then(res => {
                         if (res.data.acknowledged) {
                             Swal.fire({
@@ -45,7 +49,7 @@ const AllParcels = () => {
     }
 
 
-    
+
 
     return (
         <div className=''>

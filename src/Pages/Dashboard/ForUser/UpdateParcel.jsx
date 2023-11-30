@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
 import { PulseLoader } from 'react-spinners';
 import Swal from 'sweetalert2';
 import { useParams } from 'react-router-dom';
 import useGetSingleParcel from '../../../Hooks/useGetSingleParcel';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import { ContextAuth } from '../../../Context/Context';
 
 
 
 const UpdateParcel = () => {
+    const { user } = useContext(ContextAuth)
     const {id} = useParams()
     const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
     const kg = watch('weight') || 0
@@ -62,7 +64,7 @@ const UpdateParcel = () => {
         const bookedData = { name, email, price, address, requested_delivery_date, phone_number, receivers_name, receivers_number, type, weight, date, status }
 
 
-        axiosSecure.put(`/bookedparcel/?id=${id}`, bookedData)
+        axiosSecure.put(`/bookedparcel/?id=${id}&email=${user.email}`, bookedData)
             .then(res => {
                 if (res.data.acknowledged) {
                     Swal.fire({

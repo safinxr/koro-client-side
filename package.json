@@ -12,6 +12,7 @@
   "dependencies": {
     "apexcharts": "^3.44.0",
     "axios": "^1.6.2",
+    "cookie-parser": "^1.4.6",
     "firebase": "^10.6.0",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",

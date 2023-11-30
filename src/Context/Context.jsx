@@ -1,11 +1,12 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import { auth } from '../Firebase/firebase.config';
-import axios from 'axios';
+import useAxiosSecure from '../Hooks/useAxiosSecure';
 
 export const ContextAuth = createContext(null)
 
 const Context = ({ children }) => {
+    const axiosSecure = useAxiosSecure()
 
     const [user, setUser] = useState(null)
     const [shortLoading, setShortLoading] = useState(true)
@@ -16,16 +17,16 @@ const Context = ({ children }) => {
             setShortLoading(false);
 
             // if user exists then asked for JWT token
-            // const userEmail = { email: currentUser?.email }
-            // if (currentUser) {
-            //     axios.post('https://sasha-server-side.vercel.app/jwt', userEmail, { withCredentials: true })
+            const userEmail = { email: currentUser?.email }
+            if (currentUser) {
+                axiosSecure.post('/jwt', userEmail)
 
-            // }
+            }
 
             // // if user Doesn't exists then remove token
-            // if (!currentUser) {
-            //     axios.post('https://sasha-server-side.vercel.app/logout', userEmail, { withCredentials: true })
-            // }
+            if (!currentUser) {
+                axiosSecure.post('logout', userEmail)
+            }
         });
         return () => {
             unSubscribe();

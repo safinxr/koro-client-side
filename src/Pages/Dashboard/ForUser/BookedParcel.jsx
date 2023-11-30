@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import SectionHeader from '../../../Components/SectionHeader/SectionHeader'
 import useBookedParcel from '../../../Hooks/useBookedParcel';
 import { PropagateLoader } from 'react-spinners';
@@ -6,11 +6,13 @@ import MyBookedTable from './myBookedTable';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import { HiOutlineEmojiSad } from "react-icons/hi";
+import { ContextAuth } from '../../../Context/Context';
 
 
 const BookedParcel = () => {
+    const { user } = useContext(ContextAuth)
     const [bookedData = [], loading, refetch] = useBookedParcel()
-    const axiosSecure = useAxiosSecure()
+ const axiosSecure = useAxiosSecure()
 
 
 
@@ -26,7 +28,7 @@ const BookedParcel = () => {
             confirmButtonText: "Yes, Cancel it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`/bookedParcel/?id=${id}`)
+                axiosSecure.delete(`/bookedParcel/?id=${id}&email=${user.email}`)
                     .then(res => {
                         if (res.data.acknowledged) {
                             Swal.fire({
