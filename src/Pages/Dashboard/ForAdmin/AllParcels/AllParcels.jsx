@@ -9,6 +9,11 @@ import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 const AllParcels = () => {
     const [AllData, isLoading, refetch] = useAllParcel('allparcel')
     const axiosSecure = useAxiosSecure()
+    if (isLoading) {
+        return <div className='h-[80vh] flex justify-center items-center'>
+            <PulseLoader color="#231F20" size={20} />
+        </div>
+    }
 
     const deleteBtn = (id) => {
         Swal.fire({
@@ -40,11 +45,7 @@ const AllParcels = () => {
     }
 
 
-    if (isLoading) {
-        return <div className='h-[80vh] flex justify-center items-center'>
-            <PulseLoader color="#231F20" size={20} />
-        </div>
-    }
+    
 
     return (
         <div className=''>
