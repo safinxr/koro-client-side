@@ -13,7 +13,7 @@ const StatisticsPage = () => {
         series: [
             {
                 name:'Delivery Booked',
-                data: [44, 55, 41, 64, 22, 43],
+                data: [44, 55, 41, 64, 22, 10],
             },
         ],
         options: {
