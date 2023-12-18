@@ -5,8 +5,10 @@
 ## Demo
 [Website Live link](https://koro-ebb34.web.app/)
 
-
-# Features
+## Description
+Koro is a online Parcel Management platform where people can Book Parcel To Deliver
+                                    
+## Features
 ### Dynamic Navbar
 The application boasts a dynamic navbar that adjusts based on user authentication status. Interactive profile dropdown for logged-in users.
 
