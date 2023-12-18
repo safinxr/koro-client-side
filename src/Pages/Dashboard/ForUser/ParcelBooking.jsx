@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form"
 import useUserType from '../../../Hooks/useUserType';
 import { PulseLoader } from 'react-spinners';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
+import { ContextAuth } from '../../../Context/Context';
 
 const ParcelBooking = () => {
+    const { user } = useContext(ContextAuth)
     const [userInfo, isLoading] = useUserType()
     const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
     const kg = watch('weight') || 0
@@ -54,9 +56,10 @@ const ParcelBooking = () => {
         const status = 'Unpaid'
         const bookedData = { name, email, price, address, requested_delivery_date, phone_number, receivers_name, receivers_number, type, weight, date, status }
 
-        axiosPublic.post('/bookedparcel', bookedData)
+
+        axiosPublic.post(`/bookedparcel?email=${user.email}`, bookedData)
             .then(res => {
-                if (res.data.acknowledged){
+                if (res.data.acknowledged) {
                     Swal.fire({
                         position: "center",
                         icon: "success",
@@ -64,12 +67,12 @@ const ParcelBooking = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                    // reset()
-                    
+                    reset()
+
                 }
-                
+
             })
-        
+
 
     }
     return (
