@@ -29,4 +29,4 @@ The user profile section displays added food items, enables food item addition, 
 This Restaurant Management Website incorporates robust JSON Web Token (JWT) authentication, ensuring a secure and seamless user experience.
 
 ### Parcel Booking System
-Streamlined parcel booking system with a user-friendly interface. Auto-filled fields for logged-in users, enhancing convenience. Advanced features like real-time price calculation and status management.
+Streamlined parcel booking system with a user friendly interface. Auto-filled fields for logged-in users, enhancing convenience. Advanced features like real-time price calculation and status management.
